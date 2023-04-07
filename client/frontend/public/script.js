@@ -1,1 +1,0 @@
-document.querySelector('#root').insertAdjacentHTML('beforeend',`<h2>sdaf</h2>`)
