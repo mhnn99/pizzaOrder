@@ -6,6 +6,6 @@ app.get('/', (req,res)=>{
     res.sendFile(path.join(`${__dirname}/../frontend/index.html`))
 })
 
-app.use(express.static(`${__dirname}/../frontend/public`))
+app.use('/public', express.static(path.join(`${__dirname}/../frontend/public`)))
 
-app.listen(9002,()=>console.log('http://127.0.0.1:9002'))
+app.listen(9003,()=>console.log('http://127.0.0.1:9003', path.join(`${__dirname}/../frontend/public`)))
