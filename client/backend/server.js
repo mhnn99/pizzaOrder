@@ -3,23 +3,23 @@ const path=require('path')
 const app = express()
 
 app.get('/', (req,res)=>{
-    res.sendFile(path.join(`${__dirname}/../frontend/index.html`))
+    res.sendFile(path.join(`${__dirname}/../frontend/pages/index.html`))
 });
 
 app.get('/menu', (req,res)=>{
-    res.sendFile(path.join(`${__dirname}/../frontend/menu.html`))
+    res.sendFile(path.join(`${__dirname}/../frontend/pages/menu.html`))
 });
 
 app.get('/contact', (req,res)=>{
-    res.sendFile(path.join(`${__dirname}/../frontend/contact.html`))
+    res.sendFile(path.join(`${__dirname}/../frontend/pages/contact.html`))
 });
 
 app.get('/basket', (req,res)=>{
-    res.sendFile(path.join(`${__dirname}/../frontend/basket.html`))
+    res.sendFile(path.join(`${__dirname}/../frontend/pages/basket.html`))
 });
 
 app.get('/about', (req,res)=>{
-    res.sendFile(path.join(`${__dirname}/../frontend/about.html`))
+    res.sendFile(path.join(`${__dirname}/../frontend/pages/about.html`))
 });
 
 app.use('/public', express.static(path.join(`${__dirname}/../frontend/public`)));

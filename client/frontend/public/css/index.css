@@ -23,10 +23,10 @@ body{
 
 .logo{
     position: fixed;
-    top: 0;
-    left: 45%;
-  width: 350px;
-  height: 233px;
+    top: 40%;
+    left: 40%;
+  width: 500px;
+  height: 333px;
 }
 
 .menu-btn,
@@ -76,18 +76,22 @@ video {
 .menu-btn {
     position: fixed;
     left: 5%;
+    top: 50%;
 }
 .about-btn {
     position: fixed;
     left: 30%;
+    top: 50%;
 }
 
 .contact-btn {
     position: fixed;
     right: 30%;
+    top: 50%;
 }
 
 .basket-btn {
     position: fixed;
+    top: 50%;
     right: 5%;
 }
