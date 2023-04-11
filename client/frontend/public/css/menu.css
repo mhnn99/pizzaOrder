@@ -1,8 +1,21 @@
 body {
-  background-image: url("https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-101851.jpg?w=1380&t=st=1681220459~exp=1681221059~hmac=c8213967e6726ba4ab74f542f83a619270daf4264d46bb8c5816db42df918a5d");
+  background-image: url("https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-101851.jpg?w=1800&t=st=1681223707~exp=1681224307~hmac=9f2a4e74762a361c48df72d0ed2a38c1c46e27b21fcfa1034331a7185c7396eb");
   margin: 0;
   color: white;
   text-align: center;
+}
+
+body::-webkit-scrollbar {
+  width: 1px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(94, 94, 94);        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(194, 132, 0);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
 }
 
 /* #root{
@@ -13,6 +26,13 @@ body {
   overflow-wrap: break-word;
   overflow-x: auto;
 } */
+#root {
+  margin: 20px;
+}
+
+nav {
+  margin-top: 30px;
+}
 
 .menu-btn,
 .about-btn,
@@ -49,7 +69,7 @@ body {
 }
 
 img {
-  height: 26em;
+  height: 80%;
 }
 .quantity {
   border-radius: 5px;
