@@ -1,8 +1,18 @@
+
 body {
   background-color: black;
   margin: 0;
   color: white;
   text-align: center;
+}
+
+#root{
+  width: 40%;
+  display: flex;
+  flex-wrap: wrap;
+  inline-size: 600px;
+  overflow-wrap: break-word;
+  overflow-x: auto;
 }
 
 .menu-btn,
