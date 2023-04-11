@@ -50,6 +50,7 @@ nav {
 }
 
 .no-bullets {
+  list-style: none;
   display: flex;
   align-items: flex-start;
   flex-direction: row;

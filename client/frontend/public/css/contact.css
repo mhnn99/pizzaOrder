@@ -1,37 +1,136 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  margin: 20px;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  color: white;
+}
+
+nav {
+  margin-top: 30px;
+}
+
+.white{
+  margin: auto;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  /* background-color: rgba(108, 122, 137, 0.7); */
+  width: 70%;
+}
+
+.text-center{
+  font-size: 64px;
+}
+
+.container{
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+
 .menu-btn,
 .about-btn,
 .contact-btn,
-.basket-btn{
+.basket-btn {
   background: none;
   border: none;
-  width: 75px;
-  height: 75px;
+  width: 95px;
+  height: 95px;
 }
 
 .no-bullets {
-    list-style: none;
-    display: flex;
-    align-items: row;
-    flex-direction: row;
-    justify-content: space-around;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .menu-img,
 .about-img,
 .contact-img,
-.basket-img{
+.basket-img {
   width: 95px;
   height: 95px;
 }
 
-body {
-    background-color: black;
-}
 
 .logo{
-    position: fixed;
-    top: 40%;
-    left: 40%;
-  width: 500px;
-  height: 333px;
+  width: 150px;
+  height: 150px;
+  margin: 0;
+  padding: 0;
+}
+
+.dragArea{
+  width: 400px;
+  list-style: none;
+  justify-content: space-between;
+}
+
+#contact-details{
+  margin: 15px;
+}
+
+.add-btn {
+  --color: #913301;
+  font-family: inherit;
+  display: center;
+  justify-content: center;
+  width: 6em;
+  height: 2.6em;
+  line-height: 2.5em;
+  overflow: hidden;
+  margin: 20px;
+  font-size: 17px;
+  z-index: 1;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 6px;
+  position: relative;
+}
+
+.add-btn::before {
+  position: absolute;
+  content: "";
+  background: var(--color);
+  width: 150px;
+  height: 200px;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.add-btn:hover {
+  color: white;
+}
+
+.add-btn:before {
+  top: 100%;
+  left: 100%;
+  transition: .3s all;
+}
+
+.add-btn:hover::before {
+  top: -30px;
+  left: -30px;
+}
+
+.cid-rKZvdqkfc9{
+  padding-top: 60px;
+}
+
+.logo-small{
+  width: 200px;
+  height: 196px;
 }
