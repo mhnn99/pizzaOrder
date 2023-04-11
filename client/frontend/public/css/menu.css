@@ -1,24 +1,23 @@
-
 body {
-  background-color: black;
+  background-image: url("https://img.freepik.com/free-photo/brown-wooden-textured-flooring-background_53876-101851.jpg?w=1380&t=st=1681220459~exp=1681221059~hmac=c8213967e6726ba4ab74f542f83a619270daf4264d46bb8c5816db42df918a5d");
   margin: 0;
   color: white;
   text-align: center;
 }
 
-#root{
+/* #root{
   width: 40%;
   display: flex;
   flex-wrap: wrap;
   inline-size: 600px;
   overflow-wrap: break-word;
   overflow-x: auto;
-}
+} */
 
 .menu-btn,
 .about-btn,
 .contact-btn,
-.basket-btn{
+.basket-btn {
   background: none;
   border: none;
   width: 95px;
@@ -26,40 +25,49 @@ body {
 }
 
 .no-bullets {
-    list-style: none;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
 }
 
 .menu-img,
 .about-img,
 .contact-img,
-.basket-img{
+.basket-img {
   width: 95px;
   height: 95px;
 }
 
-
-.logo{
+.logo {
   width: 150px;
   height: 150px;
   margin: 0;
   padding: 0;
 }
 
-.pizza {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+img {
+  height: 26em;
+}
+.quantity {
+  border-radius: 5px;
+  margin-left: 40px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
   margin: 0;
-  padding: 0;
-
 }
 
+.pizza-name {
+  font-family: "Fredericka the Great", cursive;
+  font-weight: 100;
+  text-align: center;
+  font-size: 100px;
+  color: white;
+}
 
 footer {
   color: aliceblue;
@@ -73,4 +81,46 @@ footer {
   align-items: center;
   justify-content: space-evenly;
   text-transform: capitalize;
+}
+.add-btn {
+  --color: #913301;
+  font-family: inherit;
+  display: center;
+  justify-content: center;
+  width: 6em;
+  height: 2.6em;
+  line-height: 2.5em;
+  overflow: hidden;
+  margin: 20px;
+  font-size: 17px;
+  z-index: 1;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 6px;
+  position: relative;
+}
+
+.add-btn::before {
+  position: absolute;
+  content: "";
+  background: var(--color);
+  width: 150px;
+  height: 200px;
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.add-btn:hover {
+  color: white;
+}
+
+.add-btn:before {
+  top: 100%;
+  left: 100%;
+  transition: .3s all;
+}
+
+.add-btn:hover::before {
+  top: -30px;
+  left: -30px;
 }
