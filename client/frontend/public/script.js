@@ -17,7 +17,7 @@ fetch('http://localhost:9000/api/pizza')
             <p>Allergens: ${pizza.allergens}</p>
             <button>Add to cart</button>
             `;
-            document.body.appendChild(pizzaDiv);
+            document.querySelector('#root').appendChild(pizzaDiv);
         });
     })
     .catch(err => console.log(err));
