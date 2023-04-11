@@ -24,41 +24,6 @@ if(window.location.pathname==='/menu'){
             </div>
           </div>`)
           pizzaDiv.insertAdjacentHTML("beforeend",pizzaData.join(' '))
-        //   <div class="card">
-        //     <div class="bg-image ripple" data-mdb-ripple-color="light"
-        //     style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
-        //     <img src="https://img.freepik.com/free-photo/top-view-chicken-pizza-with-tomatoes-bell-peppers-olives-tray_141793-14290.jpg?size=626&ext=jpg&ga=GA1.2.558418405.1670933432&semt=ais"
-        //       class="col-12"/>
-        //       <div class="mask" style="background-color: rgba(0,0,0,.45)" >
-        //       <div class="d-flex justify-content-between p-4">
-        //       </div>
-        //       <div class="text-center">
-        //       <h3>${pizza.name}</h3>
-        //       ${pizza.ingredients.join(',')}
-        //       </div>
-        //       </div>
-        //       </div>
-        //       <div class="card-body p-4 text-center">
-        //       <a href="#!" class="text-body"><i class="fas fa-chevron-up fa-lg mb-4"></i></a>
-        //       ${(pizza.price / 100).toFixed(2)}
-        //       </div>
-        //             <button class='btn-primary'>Add to Cart</button>
-        //             </div>
-            // data.pizzas.forEach(pizza => {
-            //     const pizzaDiv = document.createElement('div');
-            //     pizzaDiv.classList.add('pizza');
-            //     pizzaDiv.innerHTML = `
-            //     <h2 class="pizza-name sub-menu">${pizza.name}</h2>
-            //     <div class="mini-card">
-            //         <p>${pizza.ingredients}</p>
-            //         <p>$ ${(pizza.price / 100).toFixed(2)}</p>
-            //         <p>Allergens: ${pizza.allergens}</p>
-            //         </div>
-            //     <input class="quantity" type="number" min="1" max="10" value="1"/>
-            //     <button>Add to cart</button>
-            //     `;
-            //     document.querySelector('#root').appendChild(pizzaDiv);
-            // });
         })
         .catch(err => console.log(err));
     

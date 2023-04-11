@@ -75,6 +75,7 @@ footer {
 }
 
 .allergens {
+  font-family: Arial, Helvetica, sans-serif;
   list-style: none;
   display: flex;
   flex-direction: row;
