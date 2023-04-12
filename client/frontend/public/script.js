@@ -12,7 +12,10 @@ if(localStorage.getItem('cartItems')){
 }
 
 if (window.location.pathname === "/menu") {
-  document.querySelector('.basket-btn').insertAdjacentHTML('beforeend',`<span>${cartItems.length}</span>`)
+  let total = 0;
+  cartItems.forEach(item=>total+=item.qty)
+  console.log(cartItems)
+  document.querySelector('.basket-btn').insertAdjacentHTML('beforeend',`<span>${total}</span>`)
   fetch("http://localhost:9000/api/pizza")
     .then((response) => response.json())
     .then((data) => {
@@ -40,8 +43,14 @@ if (window.location.pathname === "/menu") {
         body.insertBefore(addBtn,body.children[3])
         addBtn.addEventListener('click',(e)=>{
           const index = data.pizzas.findIndex(pizza=>pizza.name===e.target.parentNode.children[0].textContent)
-          cartItems.push(data.pizzas[index])
-          document.querySelector('span').textContent=cartItems.length
+          const index2 = cartItems.findIndex(cart=>cart.name===data.pizzas[index].name)
+            if(index2!==-1){
+            cartItems.splice(index2, 1, {...data.pizzas[index], qty:Number(cartItems[index2].qty) + Number(e.target.nextSibling.value)})
+            }else{
+              cartItems.push({...data.pizzas[index], qty:Number(e.target.nextSibling.value)})
+            }
+            total+=Number(e.target.nextSibling.value)
+            document.querySelector('span').textContent = Number(document.querySelector('span').textContent) + Number(e.target.nextSibling.value)
           localStorage.setItem('cartItems', JSON.stringify(cartItems))
           console.log(cartItems)
         })
@@ -172,6 +181,73 @@ if (window.location.pathname === "/menu") {
 </section>`
   );
 } else if (window.location.pathname === "/basket") {
-  const items = localStorage.getItem('cartItems')
-  console.log(JSON.parse(items))
+  document.querySelector('#root').insertAdjacentHTML('beforeend',`<div class="card">
+  <div class="row">
+      <div class="col-lg-8 cart">
+          <div class="title">
+              <div class="row">
+                  <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                  <div class="col align-self-center text-right text-muted">3 items</div>
+              </div>
+          </div>
+          </div>
+          <div class="col-md-4 summary">
+          <div><h5><b>Summary</b></h5></div>
+          <hr>
+          
+          <form>
+          <label>Name:</label><input>
+          <label>Email:</label><input>
+          <label>City:</label><input>
+          <label>Street:</label><input>
+          </form>
+          <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+              <div class="col">TOTAL PRICE</div>
+              <div class="col text-right">&euro; 137.00</div>
+              </div>
+              <button class="btn">CHECKOUT</button>
+          </div>
+          </div> `)
+  const itemDetails = cartItems.map(item=>`<div class="row border-top border-bottom">
+  <div class="row main align-items-center">
+      <div class="col-2"><img class="img-fluid" src=${item.img}></div>
+      <div class="col">
+          <div class="row text-muted">Pizza</div>
+          <div class="row">${item.name}</div>
+      </div>
+      <div class="col">
+          <a href="#" id='substract'>-</a><a href="#" class="border">${item.qty}</a><a href="#" id='add'>+</a>
+      </div>
+      <div class="col">$${item.price * item.qty} <span class="close">&#10005;</span></div>
+  </div>
+</div>`)
+document.querySelector('.cart').insertAdjacentHTML('beforeend',itemDetails.join(' '))
+document.querySelectorAll('#substract').forEach(btn=>btn.addEventListener('click',(e)=>{
+  const index = cartItems.findIndex(item=>item.name===e.target.parentNode.parentNode.children[1].children[1].textContent)
+  if(cartItems[index].qty>1){
+  cartItems[index].qty--}
+  else{
+    cartItems.splice(index,1)
+    e.target.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode)
+  }
+  localStorage.setItem('cartItems', JSON.stringify(cartItems))
+  e.target.nextSibling.textContent = cartItems[index].qty
+  e.target.parentNode.nextSibling.nextSibling.firstChild.textContent = `$${cartItems[index].qty * cartItems[index].price}`
+  console.log(cartItems)
+}))
+document.querySelectorAll('#add').forEach(btn=>btn.addEventListener('click',(e)=>{
+  const index = cartItems.findIndex(item=>item.name===e.target.parentNode.parentNode.children[1].children[1].textContent)
+  cartItems[index].qty++
+  e.target.previousSibling.textContent = cartItems[index].qty
+  e.target.parentNode.nextSibling.nextSibling.firstChild.textContent = `$${cartItems[index].qty * cartItems[index].price}`
+  localStorage.setItem('cartItems', JSON.stringify(cartItems))
+  console.log(cartItems)
+}))
+document.querySelectorAll('.close').forEach(btn=>btn.addEventListener('click', (e) =>{
+  const index = cartItems.findIndex(item=>item.name===e.target.parentNode.parentNode.children[1].children[1].textContent)
+  cartItems.splice(index,1)
+    e.target.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode)
+    console.log(cartItems)
+    localStorage.setItem('cartItems', JSON.stringify(cartItems))
+}))
 }
