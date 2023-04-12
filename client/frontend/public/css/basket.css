@@ -1,37 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  margin: 20px;
+}
+
+nav {
+  margin-top: 30px;
+}
+
+body {
+  background-image: url("../images/top-view-mixed-pizza-with-tomato-black-olive-melted-cheese.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  color: white;
+}
+
+
 .menu-btn,
 .about-btn,
 .contact-btn,
-.basket-btn{
+.basket-btn {
   background: none;
   border: none;
-  width: 75px;
-  height: 75px;
+  width: 95px;
+  height: 95px;
 }
 
 .no-bullets {
-    list-style: none;
-    display: flex;
-    align-items: row;
-    flex-direction: row;
-    justify-content: space-around;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .menu-img,
 .about-img,
 .contact-img,
-.basket-img{
+.basket-img {
   width: 95px;
   height: 95px;
 }
 
-body {
-    background-color: black;
-}
 
 .logo{
-    position: fixed;
-    top: 40%;
-    left: 40%;
-  width: 500px;
-  height: 333px;
+  width: 150px;
+  height: 150px;
+  margin: 0;
+  padding: 0;
 }
