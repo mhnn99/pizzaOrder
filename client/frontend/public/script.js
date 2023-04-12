@@ -3,8 +3,16 @@ document.querySelector("html").appendChild(footer);
 const ulist = document.createElement("ul");
 ulist.classList.add("allergens");
 footer.appendChild(ulist);
+let cartItems;
+if(localStorage.getItem('cartItems')){
+  cartItems = JSON.parse(localStorage.getItem('cartItems'))
+  console.log(cartItems)
+}else{
+  cartItems=[];
+}
 
 if (window.location.pathname === "/menu") {
+  document.querySelector('.basket-btn').insertAdjacentHTML('beforeend',`<span>${cartItems.length}</span>`)
   fetch("http://localhost:9000/api/pizza")
     .then((response) => response.json())
     .then((data) => {
@@ -13,22 +21,34 @@ if (window.location.pathname === "/menu") {
       document.querySelector("#root").appendChild(pizzaDiv);
       const pizzaData = data.pizzas.map(
         (pizza) => `<div class="col">
-            <div class="card h-100">
-              <img src="${pizza.img}" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">${pizza.name}</h5>
-                <p class="card-text">${pizza.ingredients.join(",")}</p>
-                <p class="card-text">Allergens: ${pizza.allergens}</p>
-                <button class="add-btn">Add to cart</button>
-                <input class="quantity" type="number" min="1" max="10" value="1"/> Qty.
-              </div>
-            </div>
-          </div>`
-      );
-      pizzaDiv.insertAdjacentHTML("beforeend", pizzaData.join(" "));
+        <div class="card h-100">
+        <img src="${pizza.img}" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">${pizza.name}</h5>
+        <p class="card-text">${pizza.ingredients.join(",")}</p>
+        <p class="card-text">Allergens: ${pizza.allergens}</p>
+        <input class="quantity" type="number" min="1" max="10" value="1"/> Qty.
+        </div>
+        </div>
+        </div>`
+        );
+        pizzaDiv.insertAdjacentHTML("beforeend", pizzaData.join(" "));
+        document.querySelectorAll('.card-body').forEach(body=>{
+        const addBtn = document.createElement('button')
+        addBtn.classList.add('add-btn')
+        addBtn.textContent = 'Add to cart'
+        body.insertBefore(addBtn,body.children[3])
+        addBtn.addEventListener('click',(e)=>{
+          const index = data.pizzas.findIndex(pizza=>pizza.name===e.target.parentNode.children[0].textContent)
+          cartItems.push(data.pizzas[index])
+          document.querySelector('span').textContent=cartItems.length
+          localStorage.setItem('cartItems', JSON.stringify(cartItems))
+          console.log(cartItems)
+        })
+      })
     })
     .catch((err) => console.log(err));
-
+    
   fetch("http://localhost:9000/api/allergens")
     .then((response) => response.json())
     .then((data) => {
@@ -152,4 +172,6 @@ if (window.location.pathname === "/menu") {
 </section>`
   );
 } else if (window.location.pathname === "/basket") {
+  const items = localStorage.getItem('cartItems')
+  console.log(JSON.parse(items))
 }
