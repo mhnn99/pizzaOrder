@@ -75,6 +75,7 @@ img {
   border-radius: 5px;
   margin-left: 40px;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -146,8 +147,46 @@ footer {
   left: -30px;
 }
 
-span{color:red;
-font-size: 3em;
-position:absolute;
-top:0%;
-right:17%}
+span {
+  color:red;
+  font-size: 3em;
+  position:absolute;
+  top:0%;
+  right:17%
+}
+
+
+@media (max-width: 600px) {
+  .menu-img,
+  .about-img,
+  .contact-img,
+  .basket-img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .logo {
+    width: 75px;
+    height: 75px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-btn,
+  .about-btn,
+  .contact-btn,
+  .basket-btn {
+    background: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+  }
+
+  span {
+    color:red;
+    font-size: 1em;
+    position:fixed;
+    top:3%;
+    right:25%
+  }
+}
