@@ -156,7 +156,7 @@ span {
   color:red;
   font-size: 1.5em;
   font-weight: bold;
-  position: absolute;
+  position: fixed;
   right: 11.8em;
   top: 3.5em;
 }

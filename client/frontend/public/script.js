@@ -10,7 +10,39 @@ if (localStorage.getItem("cartItems")) {
 } else {
   cartItems = [];
 }
-
+const emptyBasket = () => {
+  document.querySelector("#root").insertAdjacentHTML(
+    "beforeend",
+    `<div class="card">
+<div class="row">
+    <div class="col-lg-8 cart">
+        <div class="title">
+            <div class="row">
+                <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                <div id="total-items" class="col align-self-center text-right text-muted"></div>
+                <div id="go-back-msg">Your shopping cart is empty</div>
+                <div class="loader">
+                  <p class="heading">Please add some items to your basket</p>
+                  <div class="loading">
+                    <div class="load"></div>
+                    <div class="load"></div>
+                    <div class="load"></div>
+                    <div class="load"></div>
+                  </div>
+                </div>
+                </div>
+                <button class="back-btN">
+                  <span> Back to Menu</span>
+                </button>             
+        </div>
+    </div>
+    
+  </div> `
+  );
+  document.querySelector(".back-btN").addEventListener("click", () => {
+    window.location.pathname = "/menu";
+  });
+}
 let total = 0;
 cartItems.forEach((item) => (total += item.qty));
 console.log(cartItems);
@@ -127,7 +159,7 @@ if (window.location.pathname === "/menu") {
     <section class="form01 cid-rKZvdqkfc9" id="form01-1h">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 my-auto md-pb mbr-form" data-form-type="formoid">
+            <div id="form-section" class="col-lg-6 my-auto md-pb mbr-form" data-form-type="formoid">
                 <!--Formbuilder Form-->
                 <form action="http://127.0.0.1:9003/about" class="mbr-form form-with-styler" data-form-title="Form Name" data-gtm-form-interact-id="0"><input type="hidden" name="email" data-form-email="true" value="Cv8s/k4rFI6kL7k3T8R8G9v9LIb8BW+ZZQqQe7r1UtJdLZm+93MZDXHx8IGvReETzt+ZAcJePT/Ou9UoXcFB/Cdt4EJD7SADxMRQWA5k2dxfFN1ogxbDxuHZVHfl4nYR.KngEUX/GE1utv3kkgU1UIbTYev+bHJocfWs7mvnYH5yZoHZfdZaeKHlgrrslb3lWgSuVi+rNphxd6DiJ/98+lYGuLHgUAKGcThuGAfGAOmAnri8ycrOgzXhsA9TWYbbs">
                     <div class="form-row">
@@ -158,58 +190,33 @@ if (window.location.pathname === "/menu") {
                 <!--Formbuilder Form-->
             </div>
             <div class="col-lg-6 col-md-12">
-            <div class="google-map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3520.0884228715367!2d26.110307951332704!3d44.439064809172955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff3720fc05a1%3A0x916032a35d575c4e!2sStrada%20Semilunei%204%2C%20Bucure%C8%99ti%20030167!5e1!3m2!1sen!2sro!4v1681225257586!5m2!1sen!2sro" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            <div class="google-map"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7040.1773047163915!2d26.112502!3d44.439061!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff3720fc05a1%3A0x916032a35d575c4e!2sStrada%20Semilunei%204%2C%20Bucure%C8%99ti%20030167!5e1!3m2!1sen!2sro!4v1681401595630!5m2!1sen!2sro" width="714" height="374.19" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            </div>
+            <div id="address">
+              <div id="address-details">
+                <br>
+                
+                <h5 class="address-right"><strong>Strada Semilunei 4 București 030167</strong></h5>
+              </div>
+              <div id="address-details">
+                <br>
+                <h5 class="address-left"><strong>Phone number: </strong></h5>
+                <h5 class="address-right"><strong>+40 (739) 855 117</strong></h5>
+              </div>
+              <div id="address-details">
+                <br>
+                <h5 class="address-left"><strong>Phone number: </strong></h5>
+                <h5 class="address-right"><strong>+40 (739) 855 117</strong></h5>
+              </div>
             </div>
 
         </div>
 
-    </div>
-</section>
+      </div>
+    </section>
     `
   );
-  document.querySelector("#root").insertAdjacentHTML(
-    "beforeend",
-    `<section class="cid-rKZvexmpbP" id="footer03-1i">
 
-    
-
-    
-
-  <div class="container">
-      <div class="row mbr-white justify-content-center">
-          <div class="col-md-6 col-lg-4">
-              <div class="item-content">
-                  <div class="icon-wrap icon-padding">
-                      <h6 class="location mbr-regular mbr-fonts-style display-3">Strada Semilunei 4&nbsp;<br>Bucuresti,RO</h6>
-                  </div>
-
-                  <div class="icon-wrap icon-padding">
-                      <h6 class="location mbr-regular mbr-fonts-style display-4"><a href="#" class="text-success"><strong>(0725)
-                      595-263</strong></a></h6>
-                  </div>
-
-                  <div class="icon-wrap icon-padding">
-                      <span class="mbr-iconfont mobi-mbri-clock mobi-mbri"></span>
-                      <h6 class="location mbr-regular mbr-fonts-style display-4">Monday – Friday
-                          <div>10.00 AM – 8.00 PM</div>
-                      </h6>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 align-center">
-              <div class="item-content">
-                  <div class="logo-wrap">
-                      <img class="logo-small" src="./public/images/logo.png">
-                  </div>
-                  <p class="mbr-text mbr-fonts-style display-4">Hope to hear from you soon!</p>
-              </div>
-          </div>
-
-      </div>
-  </div>
-</section>`
-  );
 } else if (window.location.pathname === "/basket") {
   if (cartItems.length) {
     const priceReducer = (items, flag) => {
@@ -286,28 +293,34 @@ if (window.location.pathname === "/menu") {
             item.name ===
             e.target.parentNode.parentNode.children[1].children[1].textContent
         );
-        if (cartItems[index].qty > 1) {
-          cartItems[index].qty--;
-        } else {
+        if(priceReducer(cartItems, 'qty') === 1){
+          document.querySelector("#root").innerHTML = '';
+          emptyBasket();
           cartItems.splice(index, 1);
-          e.target.parentNode.parentNode.parentNode.removeChild(
-            e.target.parentNode.parentNode
-          );
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        }else{
+          if (cartItems[index].qty > 1) {
+            cartItems[index].qty--;
+          } else {
+            cartItems.splice(index, 1);
+            e.target.parentNode.parentNode.parentNode.removeChild(
+              e.target.parentNode.parentNode
+            );
+          }
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+          e.target.nextSibling.textContent = cartItems[index].qty;
+          e.target.parentNode.nextSibling.nextSibling.firstChild.textContent = `$${
+            cartItems[index].qty * cartItems[index].price
+          }`;
+          document.querySelector("#total-items").innerHTML = `${priceReducer(
+            cartItems,
+            "qty"
+          )} items`;
+          document.querySelector("#total-price").innerHTML = `$${priceReducer(
+            cartItems,
+            "price"
+          )}`;
         }
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
-        e.target.nextSibling.textContent = cartItems[index].qty;
-        e.target.parentNode.nextSibling.nextSibling.firstChild.textContent = `$${
-          cartItems[index].qty * cartItems[index].price
-        }`;
-        document.querySelector("#total-items").innerHTML = `${priceReducer(
-          cartItems,
-          "qty"
-        )} items`;
-        document.querySelector("#total-price").innerHTML = `$${priceReducer(
-          cartItems,
-          "price"
-        )}`;
-        console.log(cartItems);
       })
     );
     document.querySelectorAll("#add").forEach((btn) =>
@@ -335,69 +348,49 @@ if (window.location.pathname === "/menu") {
       })
     );
     document.querySelectorAll(".close").forEach((btn) =>
-      btn.addEventListener("click", (e) => {
+    btn.addEventListener("click", (e) => {
         const index = cartItems.findIndex(
           (item) =>
             item.name ===
             e.target.parentNode.parentNode.children[1].children[1].textContent
         );
-        cartItems.splice(index, 1);
-        e.target.parentNode.parentNode.parentNode.removeChild(
-          e.target.parentNode.parentNode
-        );
-        console.log(cartItems);
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        if(cartItems.length === 1){
+          document.querySelector("#root").innerHTML = '';
+          cartItems.splice(index,1);
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+          emptyBasket();
+          console.log(cartItems)
+        }else{
+          cartItems.splice(index, 1);
+          e.target.parentNode.parentNode.parentNode.removeChild(
+            e.target.parentNode.parentNode
+          );
+          console.log(cartItems);
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        }
       })
     );
   } else {
-    document.querySelector("#root").insertAdjacentHTML(
-      "beforeend",
-      `<div class="card">
-  <div class="row">
-      <div class="col-lg-8 cart">
-          <div class="title">
-              <div class="row">
-                  <div class="col"><h4><b>Shopping Cart</b></h4></div>
-                  <div id="total-items" class="col align-self-center text-right text-muted"></div>
-                  <div id="go-back-msg">Your shopping cart is empty</div>
-                  <svg class="pl" width="128px" height="128px" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-                    <circle class="pl__ring1" cx="64" cy="64" r="60" fill="none" stroke="hsl(3,90%,55%)" stroke-width="8" transform="rotate(-90,64,64)" stroke-linecap="round" stroke-dasharray="377 377" stroke-dashoffset="-376.4"></circle>
-                    <circle class="pl__ring2" cx="64" cy="64" r="52.5" fill="none" stroke="hsl(13,90%,55%)" stroke-width="7" transform="rotate(-90,64,64)" stroke-linecap="round" stroke-dasharray="329.9 329.9" stroke-dashoffset="-329.3"></circle>
-                    <circle class="pl__ring3" cx="64" cy="64" r="46" fill="none" stroke="hsl(23,90%,55%)" stroke-width="6" transform="rotate(-90,64,64)" stroke-linecap="round" stroke-dasharray="289 289" stroke-dashoffset="-288.6"></circle>
-                    <circle class="pl__ring4" cx="64" cy="64" r="40.5" fill="none" stroke="hsl(33,90%,55%)" stroke-width="5" transform="rotate(-90,64,64)" stroke-linecap="round" stroke-dasharray="254.5 254.5" stroke-dashoffset="-254"></circle>
-                    <circle class="pl__ring5" cx="64" cy="64" r="36" fill="none" stroke="hsl(43,90%,55%)" stroke-width="4" transform="rotate(-90,64,64)" stroke-linecap="round" stroke-dasharray="226.2 226.2" stroke-dashoffset="-225.8"></circle>
-                    <circle class="pl__ring6" cx="64" cy="64" r="32.5" fill="none" stroke="hsl(53,90%,55%)" stroke-width="3" transform="rotate(-90,64,64)" stroke-linecap="round" stroke-dasharray="204.2 204.2" stroke-dashoffset="-203.9"></circle>
-                  </svg>
-                  </div>
-                  <button class="back-btN">
-                    <span> Back to Menu</span>
-                  </button>             
-          </div>
-      </div>
-      
-    </div> `
-    );
-    document.querySelector(".back-btN").addEventListener("click", () => {
-      window.location.pathname = "/menu";
-    });
-  }
+    
+    emptyBasket()
+    }
 }
-const form = document.querySelector("form");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+// const form = document.querySelector("form");
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
 
-  const formData = new FormData(e.target);
-  const entries = [...formData.entries()];
+//   const formData = new FormData(e.target);
+//   const entries = [...formData.entries()];
 
-  const employee = entries.reduce((acc, entry) => {
-    const [k, v] = entry;
-    acc[k] = v;
-    return acc;
-  }, {});
+//   const employee = entries.reduce((acc, entry) => {
+//     const [k, v] = entry;
+//     acc[k] = v;
+//     return acc;
+//   }, {});
 
-  console.log(employee);
+//   console.log(employee);
 
-  // for (const [key, value] of formData) {
-  //   output.textContent += ${key}: ${value}\n;
-  // }
-});
+//   // for (const [key, value] of formData) {
+//   //   output.textContent += ${key}: ${value}\n;
+//   // }
+// });

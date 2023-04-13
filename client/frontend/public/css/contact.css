@@ -7,41 +7,34 @@
 #root {
   margin: 20px;
 }
-
-#menu-title{
-  display: none;
-}
-
-body {
-  background-color: rgb(255, 255, 255);
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin: 0;
-  color: white;
+body, html {
+  height: 100%;
 }
 
 nav {
   margin-top: 30px;
 }
 
-.white{
-  margin: auto;
-  padding: 10px;
-  color: rgb(255, 255, 255);
-  /* background-color: rgba(108, 122, 137, 0.7); */
-  width: 70%;
+body {
+  background-image: url("../images/top-view-mixed-pizza-with-tomato-black-olive-melted-cheese.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  color: white;
 }
 
-.text-center{
-  font-size: 64px;
+#menu-title{
+  display: none;
 }
 
-.container{
+
+
+#go-back-msg{
   font-size: 24px;
-  font-weight: 400;
-  line-height: 1.8;
+  font-style: italic;
+  text-align: end;
+  height: 200px;
 }
-
 
 .menu-btn,
 .about-btn,
@@ -78,6 +71,7 @@ nav {
 }
 
 
+
 @media (max-width: 600px) {
   .menu-img,
   .about-img,
@@ -106,13 +100,64 @@ nav {
 }
 
 .dragArea{
+  color: white;
   width: 400px;
   list-style: none;
-  justify-content: space-between;
+}
+
+#section-id{
+  display: flex;
+  position: absolute;
+  padding-inline: 400px;
+
 }
 
 #contact-details{
   margin: 15px;
+}
+
+
+#form-section{
+  border-style: solid;
+  border-width: 3px;
+  border-color: white;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#address{
+  color: white;
+  margin-top: 35px;
+  height: 400px;
+  width: 500px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: white;
+  border-radius: 28px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.address-left{
+  text-align: left;
+}
+
+.address-right{
+  text-align: right;
+}
+
+.google-map{
+  margin-left: 15px;
+  height: 380.19px;
+  width: 720px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: white;
+  border-radius: 28px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+iframe {
+  border-radius: 25px;
 }
 
 .add-btn {
