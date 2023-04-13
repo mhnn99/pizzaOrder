@@ -219,10 +219,10 @@ if (window.location.pathname === "/menu") {
             <hr>
             
             <form>
-            <label>Name:</label><input type="text">
-            <label>Email:</label><input type="email">
-            <label>City:</label><input type="text">
-            <label>Street:</label><input type="text">
+            <label>Name:</label><input type="text" name="Name">
+            <label>Email:</label><input type="email" name="Email">
+            <label>City:</label><input type="text" name="City">
+            <label>Street:</label><input type="text" name="Street">
             <button type="submit" class="btn">CHECKOUT</button>
             </form>
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
@@ -279,6 +279,27 @@ if (window.location.pathname === "/menu") {
       localStorage.setItem('cartItems', JSON.stringify(cartItems))
   }))
   }
+  const form = document.querySelector('form')
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+      const formData = new FormData(e.target);
+      const entries = [...formData.entries()];
+  
+      const employee = entries.reduce((acc, entry) => {
+        const [k, v] = entry;
+        acc[k] = v;
+        return acc;
+      }, {});
+
+  console.log(employee)
+
+
+// for (const [key, value] of formData) {
+//   output.textContent += ${key}: ${value}\n;
+// }
+    
+  })
   }else{
     
   }
