@@ -195,19 +195,20 @@ if (window.location.pathname === "/menu") {
             <div id="address">
               <div id="address-details">
                 <br>
-                
-                <h5 class="address-right"><strong>Strada Semilunei 4 București 030167</strong></h5>
+                <h5 class="address-center"><img src="./public/images/pinpoint.png"/><strong>Strada Semilunei 4 București 030167</strong></h5>
               </div>
               <div id="address-details">
                 <br>
-                <h5 class="address-left"><strong>Phone number: </strong></h5>
-                <h5 class="address-right"><strong>+40 (739) 855 117</strong></h5>
+                <h5 class="address-center"><img src="./public/images/phone.png"/><strong>+40 (739) 855 117</strong></h5>
               </div>
               <div id="address-details">
                 <br>
-                <h5 class="address-left"><strong>Phone number: </strong></h5>
-                <h5 class="address-right"><strong>+40 (739) 855 117</strong></h5>
+                <h5 class="address-center"><img src="./public/images/time.png"/><strong>Monday - Friday</strong></h5>
               </div>
+              <div id="address-details">
+              <br>
+              <h5 class="address-center"><strong>10:00 AM - 9:00 PM</strong></h5>
+            </div>
             </div>
 
         </div>
