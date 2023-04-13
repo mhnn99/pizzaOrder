@@ -23,6 +23,9 @@ body {
   color: white;
 }
 
+#menu-title{
+  display: none;
+}
 
 .menu-btn,
 .about-btn,
