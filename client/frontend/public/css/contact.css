@@ -8,6 +8,10 @@
   margin: 20px;
 }
 
+#menu-title{
+  display: none;
+}
+
 body {
   background-color: rgb(255, 255, 255);
   background-size: cover;

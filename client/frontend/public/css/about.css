@@ -8,6 +8,10 @@
   margin: 20px;
 }
 
+#menu-title{
+  display: none;
+}
+
 body, html {
   height: 100%;
 }
