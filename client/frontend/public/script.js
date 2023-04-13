@@ -375,22 +375,48 @@ if (window.location.pathname === "/menu") {
     emptyBasket()
     }
 }
-// const form = document.querySelector("form");
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
+const form = document.querySelector("form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-//   const formData = new FormData(e.target);
-//   const entries = [...formData.entries()];
+  const formData = new FormData(e.target);
+  const entries = [...formData.entries()];
+  const uid = Math.floor(Math.random()*10000)
+  let orderObj = {}
+  let customerObj={}
+  const dateObj = {}
+  const date = new Date()
+  const customer = entries.reduce((acc, entry) => {
+    const [k, v] = entry;
+    if(k==='City'||k==='Street'){
+      customerObj[k] = v;
+    }else acc[k] = v;
+    acc.address = {...customerObj}
+    return acc
+  }, {});
+  const pizzaArr = cartItems.map(item=>{return{id:item.id, amount:item.qty}})
 
-//   const employee = entries.reduce((acc, entry) => {
-//     const [k, v] = entry;
-//     acc[k] = v;
-//     return acc;
-//   }, {});
+  dateObj.year = date.getFullYear()
+  dateObj.month = date.getMonth() +1
+  dateObj.day = date.getDate()
+  dateObj.hour = date.getHours()
+  dateObj.minute = date.getMinutes()
 
-//   console.log(employee);
-
-//   // for (const [key, value] of formData) {
-//   //   output.textContent += ${key}: ${value}\n;
-//   // }
-// });
+  orderObj.id = uid
+  orderObj.pizza = [...pizzaArr]
+  orderObj.date = {...dateObj}
+  orderObj.customer = {...customer}
+  console.log(orderObj)
+  document.querySelector('#root').insertAdjacentHTML('afterbegin',`<div class="toast show">
+  <div class="toast-header">
+    Toast Header
+    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+  </div>
+  <div class="toast-body">
+    Some text inside the toast body
+  </div>
+</div>`)
+  // for (const [key, value] of formData) {
+  //   output.textContent += ${key}: ${value}\n;
+  // }
+});
