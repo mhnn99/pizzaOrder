@@ -159,3 +159,88 @@ span {
   right:17%;
   z-index: 100; 
 }
+
+
+
+@media (max-width: 768px) {
+  body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  .menu-img,
+  .about-img,
+  .contact-img,
+  .basket-img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-btn,
+  .about-btn,
+  .contact-btn,
+  .basket-btn {
+    background: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+  }
+
+
+}
+
+@media screen and (max-device-width: 412px) and (orientation: portrait) {
+  body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+
+  .menu-img,
+  .about-img,
+  .contact-img,
+  .basket-img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-btn,
+  .about-btn,
+  .contact-btn,
+  .basket-btn {
+    background: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+  }
+
+  .white {
+    font-size: 50px;
+  }
+
+  .container {
+    font-size: 16px;
+  }
+
+  .order-now-btn {
+    position: absolute;
+    left: 20%;
+    margin: 20px;
+  }
+}

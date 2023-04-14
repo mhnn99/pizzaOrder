@@ -196,3 +196,63 @@ span {
     right:25%
   }
 }
+
+@media (max-width: 2560px) {
+  span {
+    color:red;
+    font-size: 2em;
+    position:fixed;
+    top:5.9%;
+    right:15.6%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .menu-img,
+  .about-img,
+  .contact-img,
+  .basket-img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 20%;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-btn,
+  .about-btn,
+  .contact-btn,
+  .basket-btn {
+    background: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+  }
+
+  span {
+    color:red;
+    font-size: 1em;
+    position:absolute;
+    top: 7.3%;
+    right:11.5%;
+  }
+
+  img {
+    height: auto;
+  }
+
+  .allergens {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 8px;
+    margin: 5px;
+  }
+}
