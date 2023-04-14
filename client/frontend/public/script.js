@@ -42,7 +42,7 @@ const emptyBasket = () => {
   document.querySelector(".back-btN").addEventListener("click", () => {
     window.location.pathname = "/menu";
   });
-}
+};
 let total = 0;
 cartItems.forEach((item) => (total += item.qty));
 console.log(cartItems);
@@ -217,7 +217,6 @@ if (window.location.pathname === "/menu") {
     </section>
     `
   );
-
 } else if (window.location.pathname === "/basket") {
   if (cartItems.length) {
     const priceReducer = (items, flag) => {
@@ -294,12 +293,12 @@ if (window.location.pathname === "/menu") {
             item.name ===
             e.target.parentNode.parentNode.children[1].children[1].textContent
         );
-        if(priceReducer(cartItems, 'qty') === 1){
-          document.querySelector("#root").innerHTML = '';
+        if (priceReducer(cartItems, "qty") === 1) {
+          document.querySelector("#root").innerHTML = "";
           emptyBasket();
           cartItems.splice(index, 1);
           localStorage.setItem("cartItems", JSON.stringify(cartItems));
-        }else{
+        } else {
           if (cartItems[index].qty > 1) {
             cartItems[index].qty--;
           } else {
@@ -349,19 +348,19 @@ if (window.location.pathname === "/menu") {
       })
     );
     document.querySelectorAll(".close").forEach((btn) =>
-    btn.addEventListener("click", (e) => {
+      btn.addEventListener("click", (e) => {
         const index = cartItems.findIndex(
           (item) =>
             item.name ===
             e.target.parentNode.parentNode.children[1].children[1].textContent
         );
-        if(cartItems.length === 1){
-          document.querySelector("#root").innerHTML = '';
-          cartItems.splice(index,1);
+        if (cartItems.length === 1) {
+          document.querySelector("#root").innerHTML = "";
+          cartItems.splice(index, 1);
           localStorage.setItem("cartItems", JSON.stringify(cartItems));
           emptyBasket();
-          console.log(cartItems)
-        }else{
+          console.log(cartItems);
+        } else {
           cartItems.splice(index, 1);
           e.target.parentNode.parentNode.parentNode.removeChild(
             e.target.parentNode.parentNode
@@ -372,79 +371,96 @@ if (window.location.pathname === "/menu") {
       })
     );
   } else {
-    
-    emptyBasket()
-    }
+    emptyBasket();
+  }
 }
 const form = document.querySelector("form");
 form.addEventListener("submit", async (e) => {
-  let fields = 0
+  let fields = 0;
   e.preventDefault();
-  let isComplete = false
+
   const formData = new FormData(e.target);
   const entries = [...formData.entries()];
-  const uid = Math.floor(Math.random()*10000)
-  let orderObj = {}
-  let customerObj={}
-  const dateObj = {}
-  const date = new Date()
+  const uid = Math.floor(Math.random() * 10000);
+  let orderObj = {};
+  let customerObj = {};
+  const dateObj = {};
+  const date = new Date();
   const customer = entries.reduce((acc, entry) => {
     const [k, v] = entry;
-    if(k==='City'||k==='Street'){
+    if (k === "City" || k === "Street") {
       customerObj[k] = v;
-    }else acc[k] = v;
-    acc.address = {...customerObj}
-    if(!v){
-      fields++
+    } else acc[k] = v;
+    acc.address = { ...customerObj };
+    if (!v) {
+      fields++;
     }
-    return acc
+    return acc;
   }, {});
-  if(fields===0){
-  const pizzaArr = cartItems.map(item=>{return{id:item.id, amount:item.qty}})
+  if (fields === 0) {
+    const pizzaArr = cartItems.map((item) => {
+      return { id: item.id, amount: item.qty };
+    });
 
-  dateObj.year = date.getFullYear()
-  dateObj.month = date.getMonth() +1
-  dateObj.day = date.getDate()
-  dateObj.hour = date.getHours()
-  dateObj.minute = date.getMinutes()
+    dateObj.year = date.getFullYear();
+    dateObj.month = date.getMonth() + 1;
+    dateObj.day = date.getDate();
+    dateObj.hour = date.getHours();
+    dateObj.minute = date.getMinutes();
 
-  orderObj.id = uid
-  orderObj.pizza = [...pizzaArr]
-  orderObj.date = {...dateObj}
-  orderObj.customer = {...customer}
-  
-  console.log(orderObj)
-  const response = await fetch('http://localhost:9000/api/orders',{
-    method:'POST',
-    body:JSON.stringify(orderObj),
-    headers:{'Content-type': 'application/json; charset=UTF-8'}
-  })
-  const res = await response.json()
-  if(res==='DONE'){
-  document.querySelector('.cart').insertAdjacentHTML('beforeend',`<div class="alert alert-success mt-3" role="alert">
+    orderObj.id = uid;
+    orderObj.pizza = [...pizzaArr];
+    orderObj.date = { ...dateObj };
+    orderObj.customer = { ...customer };
+
+    console.log(orderObj);
+    if (!document.querySelector(".alert-success")) {
+      const response = await fetch("http://localhost:9000/api/orders", {
+        method: "POST",
+        body: JSON.stringify(orderObj),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      });
+      const res = await response.json();
+      if (res === "DONE") {
+        document.querySelector(".cart").insertAdjacentHTML(
+          "beforeend",
+          `<div class="alert alert-success mt-3" role="alert">
   Your order has been placed
-</div>`)
-setTimeout(()=>{
-  document.querySelector('#root').innerHTML=''
-  emptyBasket()
-  cartItems = []
-  localStorage.setItem('cartItems', cartItems)
-},3000)}else{
-  document.querySelector('.cart').insertAdjacentHTML('beforeend',`<div class="alert alert-danger mt-3" role="alert">
+</div>`
+        );
+        setTimeout(() => {
+          document.querySelector("#root").innerHTML = "";
+          emptyBasket();
+          cartItems = [];
+          localStorage.setItem("cartItems", cartItems);
+        }, 3000);
+      }
+     else {
+      document.querySelector(".cart").insertAdjacentHTML(
+        "beforeend",
+        `<div class="alert alert-danger mt-3" role="alert">
   Server error. Please try again later
-</div>`)
-setTimeout(()=>{
-  document.querySelector('.cart').removeChild(document.querySelector('.alert-danger'))
-},3000)
-}
-  }else{
-    if(!document.querySelector('.alert-danger')){
-    document.querySelector('.cart').insertAdjacentHTML('beforeend',`<div class="alert alert-danger mt-3" role="alert">
+</div>`
+      );
+      setTimeout(() => {
+        document
+          .querySelector(".cart")
+          .removeChild(document.querySelector(".alert-danger"));
+      }, 3000);
+    }}
+  } else {
+    if (!document.querySelector(".alert-danger")) {
+      document.querySelector(".cart").insertAdjacentHTML(
+        "beforeend",
+        `<div class="alert alert-danger mt-3" role="alert">
   Please fill all the fields
-</div>`)
-setTimeout(()=>{
-  document.querySelector('.cart').removeChild(document.querySelector('.alert-danger'))
-},3000)}
+</div>`
+      );
+      setTimeout(() => {
+        document
+          .querySelector(".cart")
+          .removeChild(document.querySelector(".alert-danger"));
+      }, 3000);
+    }
   }
-
 });
