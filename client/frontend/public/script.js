@@ -378,6 +378,7 @@ if (window.location.pathname === "/menu") {
 }
 const form = document.querySelector("form");
 form.addEventListener("submit", async (e) => {
+  let fields = 0
   e.preventDefault();
   let isComplete = false
   const formData = new FormData(e.target);
@@ -394,14 +395,11 @@ form.addEventListener("submit", async (e) => {
     }else acc[k] = v;
     acc.address = {...customerObj}
     if(!v){
-      isComplete = false
-    }else{
-    isComplete = true
+      fields++
     }
     return acc
   }, {});
-  console.log(isComplete)
-  if(isComplete){
+  if(fields===0){
   const pizzaArr = cartItems.map(item=>{return{id:item.id, amount:item.qty}})
 
   dateObj.year = date.getFullYear()
@@ -448,7 +446,5 @@ setTimeout(()=>{
   document.querySelector('.cart').removeChild(document.querySelector('.alert-danger'))
 },3000)}
   }
-  // for (const [key, value] of formData) {
-  //   output.textContent += ${key}: ${value}\n;
-  // }
+
 });
