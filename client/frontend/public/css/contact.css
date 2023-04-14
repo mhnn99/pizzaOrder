@@ -319,9 +319,6 @@ iframe {
     height: 100%;
   }
 
-  body {
-    
-  }
 
   #address {
     position: absolute;
@@ -338,5 +335,27 @@ iframe {
 
   iframe {
     width: 100%;
+  }
+}
+
+
+@media (max-width: 1280px) {
+  body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  .google-map {
+    width: 100%;
+  }
+
+  iframe {
+    width: 100%;
+  }
+
+  .form-row {
+    width: 90%;
+    height: auto;
   }
 }

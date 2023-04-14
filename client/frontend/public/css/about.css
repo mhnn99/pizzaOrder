@@ -244,3 +244,16 @@ span {
     margin: 20px;
   }
 }
+
+
+@media (max-width: 1280px) {
+  body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  .order-now-btn {
+    position: absolute;
+    left: 40%;
+  }
+}
