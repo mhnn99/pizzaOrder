@@ -336,6 +336,7 @@ a:hover{
   animation-delay: 0.6s;
 }
 
+
 @keyframes move_5011 {
   0% {
     width: 0.2em;
@@ -352,4 +353,43 @@ a:hover{
   100% {
     width: 0.2em;
   }
+}
+
+
+#add,
+#substract {
+  text-decoration: none;
+  background-color: #913301;
+  border-radius: 50px;
+  color: #ffffff;
+  font-weight: bold;
+  width: 10px;
+  height: auto;
+  margin: 5px;
+  padding: none;
+}
+
+#add:hover,
+#substract:hover {
+  background-color: #e9783c;
+}
+
+.close::after {
+  content: 'X';
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 5px;
+}
+
+.close:hover::after {
+  content: '-';
+  font-weight: bold;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.border {
+  text-decoration: none;
+  color: black;
 }

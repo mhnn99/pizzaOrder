@@ -280,7 +280,7 @@ if (window.location.pathname === "/menu") {
         </div>
         <div class="col">$${
           item.price * item.qty
-        } <span class="close">&#10005;</span></div>
+        } <span class="close"></span></div>
     </div>
   </div>`
     );
