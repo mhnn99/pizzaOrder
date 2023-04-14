@@ -377,9 +377,9 @@ if (window.location.pathname === "/menu") {
     }
 }
 const form = document.querySelector("form");
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
-
+  let isComplete = false
   const formData = new FormData(e.target);
   const entries = [...formData.entries()];
   const uid = Math.floor(Math.random()*10000)
@@ -393,8 +393,15 @@ form.addEventListener("submit", (e) => {
       customerObj[k] = v;
     }else acc[k] = v;
     acc.address = {...customerObj}
+    if(!v){
+      isComplete = false
+    }else{
+    isComplete = true
+    }
     return acc
   }, {});
+  console.log(isComplete)
+  if(isComplete){
   const pizzaArr = cartItems.map(item=>{return{id:item.id, amount:item.qty}})
 
   dateObj.year = date.getFullYear()
@@ -407,16 +414,40 @@ form.addEventListener("submit", (e) => {
   orderObj.pizza = [...pizzaArr]
   orderObj.date = {...dateObj}
   orderObj.customer = {...customer}
+  
   console.log(orderObj)
-  document.querySelector('#root').insertAdjacentHTML('afterbegin',`<div class="toast show">
-  <div class="toast-header">
-    Toast Header
-    <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-  </div>
-  <div class="toast-body">
-    Some text inside the toast body
-  </div>
+  const response = await fetch('http://localhost:9000/api/orders',{
+    method:'POST',
+    body:JSON.stringify(orderObj),
+    headers:{'Content-type': 'application/json; charset=UTF-8'}
+  })
+  const res = await response.json()
+  if(res==='DONE'){
+  document.querySelector('.cart').insertAdjacentHTML('beforeend',`<div class="alert alert-success mt-3" role="alert">
+  Your order has been placed
 </div>`)
+setTimeout(()=>{
+  document.querySelector('#root').innerHTML=''
+  emptyBasket()
+  cartItems = []
+  localStorage.setItem('cartItems', cartItems)
+},3000)}else{
+  document.querySelector('.cart').insertAdjacentHTML('beforeend',`<div class="alert alert-danger mt-3" role="alert">
+  Server error. Please try again later
+</div>`)
+setTimeout(()=>{
+  document.querySelector('.cart').removeChild(document.querySelector('.alert-danger'))
+},3000)
+}
+  }else{
+    if(!document.querySelector('.alert-danger')){
+    document.querySelector('.cart').insertAdjacentHTML('beforeend',`<div class="alert alert-danger mt-3" role="alert">
+  Please fill all the fields
+</div>`)
+setTimeout(()=>{
+  document.querySelector('.cart').removeChild(document.querySelector('.alert-danger'))
+},3000)}
+  }
   // for (const [key, value] of formData) {
   //   output.textContent += ${key}: ${value}\n;
   // }
