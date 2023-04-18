@@ -247,10 +247,10 @@ if (window.location.pathname === "/menu") {
             <hr>
             
             <form>
-            <label>Name:</label><input type="text" name="Name">
-            <label>Email:</label><input type="email" name="Email">
-            <label>City:</label><input type="text" name="City">
-            <label>Street:</label><input type="text" name="Street">
+            <label for="name">Name:</label><input type="text" name="Name" id="name">
+            <label for="email">Email:</label><input type="email" name="Email" id="email">
+            <label for="city">City:</label><input type="text" name="City" id="city">
+            <label for="street">Street:</label><input type="text" name="Street" id="street">
             <button type="submit" class="btn">CHECKOUT</button>
             </form>
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
@@ -267,7 +267,7 @@ if (window.location.pathname === "/menu") {
     const itemDetails = cartItems.map(
       (item) => `<div class="row border-top border-bottom">
     <div class="row main align-items-center">
-        <div class="col-2"><img class="img-fluid" src=${item.img}></div>
+        <div class="col-2"><img class="img-fluid" src=${item.img} alt="pizza"></div>
         <div class="col">
             <div class="row text-muted">Pizza</div>
             <div class="row">${item.name}</div>
