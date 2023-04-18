@@ -19,7 +19,6 @@ const emptyBasket = () => {
         <div class="title">
             <div class="row">
                 <div class="col"><h4><b>Shopping Cart</b></h4></div>
-                <div id="total-items" class="col align-self-center text-right text-muted"></div>
                 <div id="go-back-msg">Your shopping cart is empty</div>
                 <div class="loader">
                   <p class="heading">Please add some items to your basket</p>
