@@ -266,7 +266,9 @@ if (window.location.pathname === "/menu") {
     const itemDetails = cartItems.map(
       (item) => `<div class="row border-top border-bottom">
     <div class="row main align-items-center">
-        <div class="col-2"><img class="img-fluid" src=${item.img} alt="pizza"></div>
+        <div class="col-2"><img class="img-fluid" src=${
+          item.img
+        } alt="pizza"></div>
         <div class="col">
             <div class="row text-muted">Pizza</div>
             <div class="row">${item.name}</div>
@@ -300,25 +302,34 @@ if (window.location.pathname === "/menu") {
         } else {
           if (cartItems[index].qty > 1) {
             cartItems[index].qty--;
+            document.querySelector("#total-items").innerHTML = `${priceReducer(
+              cartItems,
+              "qty"
+            )} items`;
+            document.querySelector("#total-price").innerHTML = `$${priceReducer(
+              cartItems,
+              "price"
+            )}`;
           } else {
             cartItems.splice(index, 1);
             e.target.parentNode.parentNode.parentNode.removeChild(
               e.target.parentNode.parentNode
             );
+            document.querySelector("#total-items").innerHTML = `${priceReducer(
+              cartItems,
+              "qty"
+            )} items`;
+            document.querySelector("#total-price").innerHTML = `$${priceReducer(
+              cartItems,
+              "price"
+            )}`;
           }
           localStorage.setItem("cartItems", JSON.stringify(cartItems));
           e.target.nextSibling.textContent = cartItems[index].qty;
           e.target.parentNode.nextSibling.nextSibling.firstChild.textContent = `$${
             cartItems[index].qty * cartItems[index].price
           }`;
-          document.querySelector("#total-items").innerHTML = `${priceReducer(
-            cartItems,
-            "qty"
-          )} items`;
-          document.querySelector("#total-price").innerHTML = `$${priceReducer(
-            cartItems,
-            "price"
-          )}`;
+         
         }
       })
     );
@@ -441,20 +452,20 @@ form.addEventListener("submit", async (e) => {
           cartItems = [];
           localStorage.setItem("cartItems", cartItems);
         }, 3000);
-      }
-     else {
-      document.querySelector(".cart").insertAdjacentHTML(
-        "beforeend",
-        `<div class="alert alert-danger mt-3" role="alert">
+      } else {
+        document.querySelector(".cart").insertAdjacentHTML(
+          "beforeend",
+          `<div class="alert alert-danger mt-3" role="alert">
   Server error. Please try again later
 </div>`
-      );
-      setTimeout(() => {
-        document
-          .querySelector(".cart")
-          .removeChild(document.querySelector(".alert-danger"));
-      }, 3000);
-    }}
+        );
+        setTimeout(() => {
+          document
+            .querySelector(".cart")
+            .removeChild(document.querySelector(".alert-danger"));
+        }, 3000);
+      }
+    }
   } else {
     if (!document.querySelector(".alert-danger")) {
       document.querySelector(".cart").insertAdjacentHTML(
