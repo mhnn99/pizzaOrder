@@ -368,6 +368,14 @@ if (window.location.pathname === "/menu") {
           console.log(cartItems);
           localStorage.setItem("cartItems", JSON.stringify(cartItems));
         }
+        document.querySelector("#total-items").innerHTML = `${priceReducer(
+          cartItems,
+          "qty"
+        )} items`;
+        document.querySelector("#total-price").innerHTML = `$${priceReducer(
+          cartItems,
+          "price"
+        )}`;
       })
     );
   } else {
