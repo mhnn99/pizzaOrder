@@ -236,13 +236,13 @@ if (window.location.pathname === "/menu") {
         <div class="col-lg-8 cart">
             <div class="title">
                 <div class="row">
-                    <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                    <div class="col"><h4><b>Order Summary</b></h4></div>
                     <div id="total-items" class="col align-self-center text-right text-muted">${total} items</div>
                 </div>
             </div>
             </div>
             <div class="col-md-4 summary">
-            <div><h5><b>Summary</b></h5></div>
+            <div><h5><b>Shipping info</b></h5></div>
             <hr>
             
             <form>
