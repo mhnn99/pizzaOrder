@@ -4,6 +4,19 @@
   box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+  width: 1px;              
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(94, 94, 94);        
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(194, 132, 0);   
+  border-radius: 20px;       
+}
+
 #root {
   margin: 20px;
 }
