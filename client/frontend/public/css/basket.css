@@ -1,0 +1,510 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+  width: 1px;              
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(94, 94, 94);        
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(194, 132, 0);   
+  border-radius: 20px;       
+}
+
+#root {
+  margin: 20px;
+}
+body, html {
+  height: 100%;
+}
+
+nav {
+  margin-top: 30px;
+}
+
+body {
+  background-image: url("../images/top-view-mixed-pizza-with-tomato-black-olive-melted-cheese.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  color: white;
+}
+
+#menu-title{
+  display: none;
+}
+
+
+
+#go-back-msg{
+  font-size: 24px;
+  font-style: italic;
+  text-align: end;
+  height: 200px;
+}
+
+.menu-btn,
+.about-btn,
+.contact-btn,
+.basket-btn {
+  background: none;
+  border: none;
+  width: 95px;
+  height: 95px;
+}
+
+.no-bullets {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.menu-img,
+.about-img,
+.contact-img,
+.basket-img {
+  width: 95px;
+  height: 95px;
+}
+
+
+.logo{
+  width: 150px;
+  height: 150px;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+@media (max-width: 600px) {
+  .menu-img,
+  .about-img,
+  .contact-img,
+  .basket-img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .logo {
+    width: 75px;
+    height: 75px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-btn,
+  .about-btn,
+  .contact-btn,
+  .basket-btn {
+    background: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+  }
+}
+.title{
+  margin-bottom: 5vh;
+}
+.card{
+  margin: auto;
+  max-width: 950px;
+  width: 90%;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent;
+}
+@media(max-width:767px){
+  .card{
+      margin: 3vh auto;
+  }
+}
+.cart{
+  background-color: #fff;
+  padding: 4vh 5vh;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+@media(max-width:767px){
+  .cart{
+      padding: 4vh;
+      border-bottom-left-radius: unset;
+      border-top-right-radius: 1rem;
+  }
+}
+.summary{
+  background-color: #ddd;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 4vh;
+  color: rgb(65, 65, 65);
+}
+@media(max-width:767px){
+  .summary{
+  border-top-right-radius: unset;
+  border-bottom-left-radius: 1rem;
+  }
+}
+.summary .col-2{
+  padding: 0;
+}
+.summary .col-10
+{
+  padding: 0;
+}.row{
+  margin: 0;
+}
+.title b{
+  font-size: 1.5rem;
+}
+.main{
+  margin: 0;
+  padding: 2vh 0;
+  width: 100%;
+}
+.col-2, .col{
+  padding: 0 1vh;
+}
+a{
+  padding: 0 1vh;
+}
+.close{
+  margin-left: auto;
+  font-size: 0.7rem;
+}
+img{
+  width: 3.5rem;
+}
+.back-to-shop{
+  margin-top: 4.5rem;
+}
+h5{
+  margin-top: 4vh;
+}
+hr{
+  margin-top: 1.25rem;
+}
+form{
+  padding: 2vh 0;
+}
+select{
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 1.5vh 1vh;
+  margin-bottom: 4vh;
+  outline: none;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+}
+input{
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 1vh;
+  margin-bottom: 4vh;
+  outline: none;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+}
+input:focus::-webkit-input-placeholder
+{
+    color:transparent;
+}
+.btn{
+  background-color: #000;
+  border-color: #000;
+  color: white;
+  width: 100%;
+  font-size: 0.7rem;
+  margin-top: 4vh;
+  padding: 1vh;
+  border-radius: 0;
+}
+.btn:focus{
+  box-shadow: none;
+  outline: none;
+  box-shadow: none;
+  color: white;
+  -webkit-box-shadow: none;
+  transition: none; 
+}
+.btn:hover{
+  color: white;
+}
+a{
+  color: black; 
+}
+a:hover{
+  color: black;
+  text-decoration: none;
+}
+#code{
+  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: center;
+}
+
+/* From cssbuttons.io by @harmankanda.github.io/New */
+/* From uiverse.io by @Ali-Tahmazi99 */
+.back-btN {
+  display: inline-block;
+  position: absolute;
+  left: 66.4%;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid #913301;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-in;
+  z-index: 1;
+ }
+ 
+ .back-btN::before,
+ .back-btN::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 100%;
+  transform: skew(15deg);
+  transition: all 0.5s;
+  overflow: hidden;
+  z-index: -1;
+ }
+ 
+ .back-btN::before {
+  left: -10px;
+  background: #913301;
+ }
+ 
+ .back-btN::after {
+  right: -10px;
+  background: #e9783c;
+ }
+ 
+ .back-btN:hover::before,
+ .back-btN:hover::after {
+  width: 58%;
+ }
+ 
+ .back-btN:hover span {
+  color: #ffee00;
+  transition: 0.3s;
+ }
+ 
+ .back-btN span {
+  color: #5e1103;
+  font-size: 18px;
+  transition: all 0.3s ease-in;
+ }
+
+ .loader {
+  position: absolute;
+  top: 40%;
+  left:2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading {
+  color: black;
+  letter-spacing: 0.2em;
+  margin-bottom: 1em;
+}
+
+.loading {
+  display: flex;
+  width: 5em;
+  align-items: center;
+  justify-content: center;
+}
+
+.load {
+  width: 23px;
+  height: 3px;
+  background-color: #e9783c;
+  animation: 1s move_5011 infinite;
+  border-radius: 5px;
+  margin: 0.1em;
+}
+
+.load:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.load:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.load:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+
+@keyframes move_5011 {
+  0% {
+    width: 0.2em;
+  }
+
+  25% {
+    width: 0.7em;
+  }
+
+  50% {
+    width: 1.5em;
+  }
+
+  100% {
+    width: 0.2em;
+  }
+}
+
+
+#add,
+#substract {
+  text-decoration: none;
+  background-color: #913301;
+  border-radius: 50px;
+  color: #ffffff;
+  font-weight: bold;
+  width: 10px;
+  height: auto;
+  margin: 5px;
+  padding: none;
+}
+
+#add:hover,
+#substract:hover {
+  background-color: #e9783c;
+}
+
+.close::after {
+  content: 'X';
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 5px;
+}
+
+.close:hover::after {
+  content: '-';
+  font-weight: bold;
+  font-size: 16px;
+  margin: 5px;
+}
+
+.border {
+  text-decoration: none;
+  color: black;
+}
+
+
+
+@media (max-width: 768px) {
+
+  body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  .card {
+    width: 80%;
+    border-radius: 15px;
+  }
+
+  .cart {
+    width: 80%;
+    border-radius: 15px;
+  }
+
+  .summary {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin: 10px;
+  }
+
+  .menu-img,
+  .about-img,
+  .contact-img,
+  .basket-img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 20%;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-btn,
+  .about-btn,
+  .contact-btn,
+  .basket-btn {
+    background: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+  }
+
+ 
+
+}
+
+
+
+@media screen and (max-device-width: 412px) and (orientation: portrait) {
+  body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  .menu-img,
+  .about-img,
+  .contact-img,
+  .basket-img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-btn,
+  .about-btn,
+  .contact-btn,
+  .basket-btn {
+    background: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+
+@media (max-width: 1280px) {
+  body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+}

@@ -1,0 +1,12 @@
+[
+  { "id": 1, "name": "gluten" },
+  { "id": 2, "name": "dairy" },
+  { "id": 3, "name": "nuts" },
+  { "id": 4, "name": "shellfish" },
+  { "id": 5, "name": "soy" },
+  { "id": 6, "name": "eggs" },
+  { "id": 7, "name": "fish" },
+  { "id": 8, "name": "peanuts" },
+  { "id": 9, "name": "sesame" },
+  { "id": 10, "name": "sulfites" }
+]
